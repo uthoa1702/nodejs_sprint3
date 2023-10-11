@@ -83,7 +83,7 @@ class AdminController {
             // res.json(req.body)
             const product = new productModel({
                 name: req.body.name,
-                image: "/images/" + req.file ? ''  :  req.file.filename ,
+                image:  req.file ? "/images/" + req.file.filename : ''   ,
                 description: req.body.description,
                 price: req.body.price,
             })
