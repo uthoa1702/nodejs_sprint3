@@ -1,0 +1,33 @@
+<div class="m-t-100 p-all-50 ">
+    <section class="get-in-touch">
+        <h1 class="title">CREATE</h1>
+        <form   method="post" action="/save" enctype="multipart/form-data" class="contact-form row">
+            <div class="form-field col-lg-6">
+                <label class="label" for="name">Name<span>*</span> </label>
+
+                <input id="name" class="input-text js-input" type="text" name="name">
+                <p style="color: red">{{validate.name}}</p>
+            </div>
+            <div class="form-field col-lg-6 ">
+                <label class="label" for="email">Price<span>*</span></label>
+
+                <input id="email" class="input-text js-input" type="number" name="price">
+                <p style="color: red">{{validate.price}}</p>
+            </div>
+            <div class="form-field col-lg-12">
+                <label class="label" for="message">Description</label>
+
+                <input id="message" class="input-text js-input" type="text" name="description">
+            </div>
+            <div class="form-field col-lg-12">
+                <label class="label" for="message">Image</label>
+                <input class="input-text js-input" type="file" name="image"  />
+                <p style="color: red">{{validate.image}}</p>
+            </div>
+            <div class="form-field col-lg-12 text-center">
+                <button class="submit-btn" type="submit" >Submit</button>
+            </div>
+        </form>
+    </section>
+</div>
+

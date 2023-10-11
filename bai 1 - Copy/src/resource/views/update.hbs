@@ -1,0 +1,30 @@
+<div class="m-t-100 p-all-50 ">
+    <section class="get-in-touch">
+        <h1 class="title">UPDATE</h1>
+        <form   method="post" action="/update/{{foundItem._id}}?_method=PUT" class="contact-form row">
+            <div class="form-field col-lg-6">
+                <label class="label" for="name">Name<span>*</span> </label>
+
+                <input value="{{foundItem.name}}" id="name" class="input-text js-input" type="text" name="name">
+            </div>
+            <div class="form-field col-lg-6 ">
+                <label class="label" for="email">Price<span>*</span></label>
+
+                <input id="email" class="input-text js-input" type="number" name="price" value="{{foundItem.price}}">
+            </div>
+            <div class="form-field col-lg-12">
+                <label class="label" for="message">Description</label>
+
+                <input id="message" class="input-text js-input" type="text" value="{{foundItem.description}}" name="description">
+            </div>
+            <div class="form-field col-lg-12">
+                <label class="label" for="message">Image</label>
+                <input id="message" class="input-text js-input" type="text"value="{{foundItem.image}}" name="image">
+            </div>
+            <div class="form-field col-lg-12 text-center">
+                <button class="submit-btn" type="submit" >Submit</button>
+            </div>
+        </form>
+    </section>
+</div>
+

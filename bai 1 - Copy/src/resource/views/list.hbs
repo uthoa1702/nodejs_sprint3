@@ -1,0 +1,55 @@
+<div class="m-t-100 p-all-50 ">
+    <h2>Product List</h2>
+    <table class="table table-responsive table-dark table-hover">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>CreateAt</th>
+            <th>UpdateAt</th>
+            <th colspan="2">Action</th>
+        </tr>
+        {{# each foundItems}}
+            <tr>
+                <td>{{sum @index 1}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.createdAt}}</td>
+                <td>{{this.updatedAt}}</td>
+                <td><a href="/{{this._id}}/update" class="btn btn-warning">Update</a></td>
+                <td><a href="" class="btn btn-danger" onclick="deleteProduct('{{this.name}}', '{{this._id}}')"
+                       data-bs-toggle="modal" data-bs-target="#delete-product">Delete</a></td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="deleteForm" method="post">
+                <div class="modal-body">
+                    Are you sure to delete <span style="color: red" id="productName"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function deleteProduct(name, id) {
+        document.getElementById('productName').innerText = name
+        let deleteForm = document.getElementById('deleteForm')
+        deleteForm.action = "/delete/" + id + "?_method=DELETE"
+
+    }
+</script>
+
