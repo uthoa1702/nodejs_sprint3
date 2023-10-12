@@ -5,6 +5,7 @@
             <th>#</th>
             <th>Name</th>
             <th>Price</th>
+            <th>Type</th>
             <th>CreateAt</th>
             <th>UpdateAt</th>
             <th colspan="2">Action</th>
@@ -14,6 +15,7 @@
                 <td>{{sum @index 1}}</td>
                 <td>{{this.name}}</td>
                 <td>{{this.price}}</td>
+                <td>{{this.producttypes.name}}</td>
                 <td>{{this.createdAt}}</td>
                 <td>{{this.updatedAt}}</td>
                 <td><a href="/{{this._id}}/update" class="btn btn-warning">Update</a></td>

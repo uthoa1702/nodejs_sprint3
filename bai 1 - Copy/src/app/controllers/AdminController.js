@@ -1,30 +1,46 @@
 const productModel = require('../models/products')
+const productTypes = require('../models/ProductTypes')
 const {multipleMongooseToObject, mongooseToObject} = require('../../util/mongoose')
 const multer = require('multer');
 var upload = multer({ dest: 'src/public/images' });
 const path = require('path');
+const db = require('../../config/db/index')
 class AdminController {
 
     list(req, res) {
-        const getCourse = async () => {
-            try {
-                const items = await productModel.find({})
-                return items;
-            } catch (e) {
-                console.log(e)
-            }
-        }
-        getCourse().then((items) => {
-            res.render('list', {
-                foundItems: multipleMongooseToObject(items)
-                }
-            )
+               productModel.find().populate('producttypes').exec().then((items) => {
+                   console.log(items)
+                   res.render('list', {
+                           foundItems: multipleMongooseToObject(items)
+                       }
+                   )
 
-        }).catch((e) => {
-            console.log(e)
-            }
+                   // res.json(items)
+
+               }).catch((e) => {
+                   console.log(e)
+               }
         )
     }
+
+
+
+
+    // ket noi voi mySQL
+    // list(req, res) {
+    //
+    //         db.connectionMySQL.query('SELECT * FROM products', (err, foundItems, fields) => {
+    //             if (err) throw err
+    //             console.log(foundItems)
+    //             res.render('list', {foundItems: foundItems})
+    //
+    //
+    //         })
+    // }
+
+
+
+
     listJson(req, res) {
         const getCourse = async () => {
             try {

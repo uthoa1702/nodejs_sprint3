@@ -15,6 +15,8 @@ const cors = require('cors');
 
 // connect db
 db.connect();
+// db.connectionMySQL();
+
 
 const app = express();
 const port = 3000;
